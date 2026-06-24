@@ -1,0 +1,22 @@
+usuario@usuario-LOQ-15IRH8:~/tpcds-kit/tools$ ./dsdgen -scale 1
+dsdgen Population Generator (Version 2.10.0)
+Copyright Transaction Processing Performance Council (TPC) 2001 - 2018
+Warning: This scale factor is valid for QUALIFICATION ONLY
+usuario@usuario-LOQ-15IRH8:~/tpcds-kit/tools$ ls *.dat | head
+call_center.dat
+catalog_page.dat
+catalog_returns.dat
+catalog_sales.dat
+customer_address.dat
+customer.dat
+customer_demographics.dat
+date_dim.dat
+dbgen_version.dat
+household_demographics.dat
+usuario@usuario-LOQ-15IRH8:~/tpcds-kit/tools$ du -sh .
+1,2G	.
+usuario@usuario-LOQ-15IRH8:~/tpcds-kit/tools$ mkdir ../tpcds_10gb
+usuario@usuario-LOQ-15IRH8:~/tpcds-kit/tools$ ./dsdgen -scale 10 -dir ../tpcds_10gb
+
+# Para compilar
+make CC="gcc -std=gnu89 -fcommon"
