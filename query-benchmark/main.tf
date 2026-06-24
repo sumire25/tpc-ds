@@ -54,25 +54,16 @@ resource "aws_s3_object" "hive_queries" {
   etag   = filemd5("${path.module}/scripts/hive_queries/q${count.index + 1}.hql")
 }
 
-# --- IAM Roles (Reused from existing setup) ---
-data "aws_iam_role" "emr_service_role" {
-  name = "EMR_DefaultRole"
-}
-
-data "aws_iam_instance_profile" "emr_ec2_profile" {
-  name = "EMR_EC2_DefaultRole"
-}
-
 # --- EMR Cluster ---
 resource "aws_emr_cluster" "benchmark_cluster" {
   name          = "TPC-DS-Query-Benchmark"
   release_label = "emr-6.15.0"
   applications  = ["Hadoop", "Spark", "Hive"]
 
-  service_role = data.aws_iam_role.emr_service_role.arn
+  service_role = "LabRole"
 
   ec2_attributes {
-    instance_profile = data.aws_iam_instance_profile.emr_ec2_profile.arn
+    instance_profile = "LabInstanceProfile"
   }
 
   master_instance_group {
