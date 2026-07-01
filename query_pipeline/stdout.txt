@@ -1,0 +1,3 @@
+[2026-07-01T02:48:46Z] === TPC-DS Query Benchmark: Spark vs Hive ===
+[2026-07-01T02:48:46Z] Found 9 Spark queries and 9 Hive queries.
+[2026-07-01T02:48:46Z] START [spark] 01_top_customers_by_purchases

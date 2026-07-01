@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "run_queries.py", line 201, in <module>
+    main()
+  File "run_queries.py", line 189, in main
+    row = run_one(engine, name, src)
+  File "run_queries.py", line 118, in run_one
+    yarn_m = ym.finalize(out or "")
+  File "/mnt/tmp/tpcds_queries/scripts/metrics/yarn_metrics.py", line 150, in finalize
+    self._monitor.join(timeout=2.0)
+  File "/usr/lib64/python3.7/threading.py", line 1048, in join
+    self._wait_for_tstate_lock(timeout=max(timeout, 0))
+  File "/usr/lib64/python3.7/threading.py", line 1062, in _wait_for_tstate_lock
+    self._stop()
+TypeError: 'Event' object is not callable
+Command exiting with ret '1'
